@@ -1,0 +1,54 @@
+﻿@model ToDoAndReminderApp.Models.ToDoTask
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>ToDoTask</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ToDoTaskID" />
+
+            <div class="form-group">
+                <label asp-for="TaskTitle" class="control-label">What are you planning to do today?</label>
+                <input asp-for="TaskTitle" class="form-control" />
+                <span asp-validation-for="TaskTitle" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TaskContent" class="control-label"></label>
+                <input asp-for="TaskContent" class="form-control" />
+                <span asp-validation-for="TaskContent" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TaskReminderDateTime" class="control-label">Remind me at:</label>
+                <input asp-for="TaskReminderDateTime" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsTaskDone" /> @Html.DisplayNameFor(model => model.IsTaskDone)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
