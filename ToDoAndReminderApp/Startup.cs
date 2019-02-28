@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using ToDoAndReminderApp.Models;
+using ToDoAndReminderApp.Hubs;
 
 namespace ToDoAndReminderApp
 {
@@ -33,6 +34,7 @@ namespace ToDoAndReminderApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSignalR();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -56,6 +58,11 @@ namespace ToDoAndReminderApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<NotificationHub>("notificationHub");
+            });
 
             app.UseMvc(routes =>
             {

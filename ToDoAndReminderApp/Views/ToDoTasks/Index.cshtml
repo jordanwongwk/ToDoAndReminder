@@ -7,8 +7,24 @@
 <h2>Task List</h2>
 
 <p>
-    <b>Date: @DateTime.Today.ToString("D")</b><br />
-    <b>Time: @DateTime.Now.ToString("t")</b>
+    <b>@DateTime.Today.ToString("D") // </b>
+    <b id="currentTime"></b>
+    <script>
+        function RealTimeClockFunction()
+        {
+            var d = new Date();
+            var currentHour = d.getHours();
+            var currentMin = d.getMinutes();
+            var currentSec = d.getSeconds();
+            currentHour = ("0" + currentHour).slice(-2);        // Get only the last 2 digits
+            currentMin = ("0" + currentMin).slice(-2);
+            currentSec = ("0" + currentSec).slice(-2);
+
+            document.getElementById("currentTime").innerHTML = currentHour + ":" + currentMin + ":" + currentSec;
+        }
+
+        setInterval(RealTimeClockFunction, 1000);
+    </script>
     <br />
     <br />
     <a asp-action="Create">Create New</a>
