@@ -5,6 +5,28 @@
 }
 
 <h2>Task List</h2>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (Notification.permission != "granted") {
+            Notification.requestPermission();
+        }
+    });
+
+    function CustomNotification(title, desc, url)
+    {
+        if (Notification.permission != "granted") {
+            Notification.requestPermission();
+        }
+        else
+        {
+            var notification = new Notification(title, {
+                body: desc,
+            });
+
+            notification.onclose = function () { console.log('Notification Closed');}
+        }
+    }
+</script>
 
 <p>
     <b>@DateTime.Today.ToString("D") // </b>
@@ -24,6 +46,15 @@
         }
 
         setInterval(RealTimeClockFunction, 1000);
+    </script>
+    <script>
+        var d = new Date();
+        console.log(d.getHours().toString());
+        if (d.getHours() == "16" && d.getMinutes() == "48")
+        {
+            CustomNotification('Testing La', 'Time is up');
+        }
+        // Works but not real time
     </script>
     <br />
     <br />

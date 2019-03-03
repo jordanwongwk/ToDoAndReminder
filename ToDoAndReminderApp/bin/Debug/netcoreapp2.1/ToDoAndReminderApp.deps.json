@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "4279b8e5fb481b7f227ef8dbc8e74d045068d092"
+    "signature": "3a70a786729cd951312ca1699d6cad0a39fafa88"
   },
   "compilationOptions": {
     "defines": [
@@ -24,7 +24,7 @@
     ".NETCoreApp,Version=v2.1": {
       "ToDoAndReminderApp/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNet.SignalR": "2.4.0",
+          "Microsoft.AspNet.SignalR": "2.2.2",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
@@ -37,7 +37,50 @@
           "ToDoAndReminderApp.dll": {}
         }
       },
-      "Microsoft.AspNet.SignalR/2.4.0": {},
+      "jQuery/1.6.4": {},
+      "Microsoft.AspNet.SignalR/2.2.2": {
+        "dependencies": {
+          "Microsoft.AspNet.SignalR.JS": "2.2.2",
+          "Microsoft.AspNet.SignalR.SystemWeb": "2.2.2"
+        }
+      },
+      "Microsoft.AspNet.SignalR.Core/2.2.2": {
+        "dependencies": {
+          "Microsoft.Owin": "2.1.0",
+          "Microsoft.Owin.Security": "2.1.0",
+          "Newtonsoft.Json": "11.0.2",
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.SignalR.Core.dll": {
+            "assemblyVersion": "2.2.2.0",
+            "fileVersion": "2.2.60504.1171"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.AspNet.SignalR.Core.dll": {}
+        }
+      },
+      "Microsoft.AspNet.SignalR.JS/2.2.2": {
+        "dependencies": {
+          "jQuery": "1.6.4"
+        }
+      },
+      "Microsoft.AspNet.SignalR.SystemWeb/2.2.2": {
+        "dependencies": {
+          "Microsoft.AspNet.SignalR.Core": "2.2.2",
+          "Microsoft.Owin.Host.SystemWeb": "2.1.0"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.SignalR.SystemWeb.dll": {
+            "assemblyVersion": "2.2.2.0",
+            "fileVersion": "2.2.60504.1171"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.AspNet.SignalR.SystemWeb.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
       "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
         "dependencies": {
@@ -240,6 +283,46 @@
       },
       "Microsoft.NETCore.Platforms/2.1.0": {},
       "Microsoft.NETCore.Targets/2.1.0": {},
+      "Microsoft.Owin/2.1.0": {
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.30113.529"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        }
+      },
+      "Microsoft.Owin.Host.SystemWeb/2.1.0": {
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.30113.529"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Host.SystemWeb.dll": {}
+        }
+      },
+      "Microsoft.Owin.Security/2.1.0": {
+        "dependencies": {
+          "Microsoft.Owin": "2.1.0",
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Security.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.30113.529"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Security.dll": {}
+        }
+      },
       "Microsoft.VisualStudio.Web.CodeGeneration/2.1.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.1.1",
@@ -377,6 +460,17 @@
         },
         "compile": {
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
+        }
+      },
+      "Owin/1.0.0": {
+        "runtime": {
+          "lib/net40/Owin.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net40/Owin.dll": {}
         }
       },
       "System.Composition/1.0.31": {
@@ -3464,12 +3558,40 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNet.SignalR/2.4.0": {
+    "jQuery/1.6.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-EZUnyn6U9s6mwA50dZ/nJHsDZAJNcrEC/pCJiaL0UR5xTDo5wZHn82dLAWVo7mbjKQOfrf6O8O9l6lIUbAsl0g==",
-      "path": "microsoft.aspnet.signalr/2.4.0",
-      "hashPath": "microsoft.aspnet.signalr.2.4.0.nupkg.sha512"
+      "sha512": "sha512-5zE0/7I6UWdLfoQYtZFUQ10dVNlmAp7QWOwI3Zhlz1RG/LM1DtfvW9aFbshMksogcfkyvnxHqOQ07ULXrMI8kw==",
+      "path": "jquery/1.6.4",
+      "hashPath": "jquery.1.6.4.nupkg.sha512"
+    },
+    "Microsoft.AspNet.SignalR/2.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5vLU1oyJPlM2Uhdyare4M0McCnYpflrDI2+cBNNgPengzkamEpB68SLthivNdKBe+BkBe0SQiVs5b0cdeRyQRQ==",
+      "path": "microsoft.aspnet.signalr/2.2.2",
+      "hashPath": "microsoft.aspnet.signalr.2.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.SignalR.Core/2.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-G6gfNhaav88fY9a+Dgjv3M2jbEo4bV8J61kVPNhhWXyiblhdaXKbIsgC0rsl9/sfFY+3FEDZwC2Dp+4XfOPC5Q==",
+      "path": "microsoft.aspnet.signalr.core/2.2.2",
+      "hashPath": "microsoft.aspnet.signalr.core.2.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.SignalR.JS/2.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kIBgKB7jX+MHMn7mZEgDNC1/T9Ab2qybPQGzJ6jhSOl/vMg5gaJbG/qyiq95MAmACywqvzHr8rgmkstt8mYgsQ==",
+      "path": "microsoft.aspnet.signalr.js/2.2.2",
+      "hashPath": "microsoft.aspnet.signalr.js.2.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.SignalR.SystemWeb/2.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZeI8wH8eYnW2i2Uc2vnqVw14XncjoToz/VJm/vd70GynZEUw79H+iRcFZIJan6uuD0aYwnnx8kGYiJiaVBJV5Q==",
+      "path": "microsoft.aspnet.signalr.systemweb/2.2.2",
+      "hashPath": "microsoft.aspnet.signalr.systemweb.2.2.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",
@@ -3533,6 +3655,27 @@
       "sha512": "sha512-etaYwrLZQUS+b3UWTpCnUggd6SQ/ZIkZ5pHnoR7+dIWt/wp2Rv3CvMKOZISsrt7FYCHKwCxfcepuuyEWkQxADg==",
       "path": "microsoft.netcore.targets/2.1.0",
       "hashPath": "microsoft.netcore.targets.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.Owin/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ymAC1hAnqBRlcs3SNxn7jEWmT9p3Ld2tUPhk0q3oNaGf976y/l5QLkyDraP7e4JoUTLHcyZl9zbe6ljHJ8dO5g==",
+      "path": "microsoft.owin/2.1.0",
+      "hashPath": "microsoft.owin.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.Owin.Host.SystemWeb/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KkyNP/GoNBkAxK1lv3e/UM/1yt4m3lVAY36UImBZpYsAMIlzikX7fFBuF6/ioj2kLSeS4BVQxSlueFkvUf37ag==",
+      "path": "microsoft.owin.host.systemweb/2.1.0",
+      "hashPath": "microsoft.owin.host.systemweb.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.Owin.Security/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-X9pJXPHaODPBLOPKOosEqkCoyW9NdOWZ42QL7OdAVdSpEXc7wke91JRsolRZ22L2G8r9CtJdhHCqHWFB0ovz1Q==",
+      "path": "microsoft.owin.security/2.1.0",
+      "hashPath": "microsoft.owin.security.2.1.0.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.1.1": {
       "type": "package",
@@ -3603,6 +3746,13 @@
       "sha512": "sha512-KuqDbPzjOWbUM6gPMbkvdhlQ10roQAoMM7mNZ8hcY/fH+9J4Zc+qT8dLWoNzGyr0OrxQVdZdbSjy/fxwoICgGg==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "Owin/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S87+AKxSxfhXRzIQfm6WBxfGbnzECLG8bmVp3lRiwjeYG9YBJ0AXd+2Xn7I7aqwwj0j4erSpX6H9OhXy+qQ7tw==",
+      "path": "owin/1.0.0",
+      "hashPath": "owin.1.0.0.nupkg.sha512"
     },
     "System.Composition/1.0.31": {
       "type": "package",

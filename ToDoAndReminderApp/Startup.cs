@@ -61,7 +61,7 @@ namespace ToDoAndReminderApp
 
             app.UseSignalR(routes =>
             {
-                routes.MapHub<NotificationHub>("notificationHub");
+                routes.MapHub<NotificationHub>("/notificationHub");
             });
 
             app.UseMvc(routes =>

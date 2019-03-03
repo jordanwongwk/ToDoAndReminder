@@ -14,10 +14,18 @@ namespace ToDoAndReminderApp.Controllers
     public class ToDoTasksController : Controller
     {
         private readonly ToDoTasksContext _context;
+        private readonly IHubContext<NotificationHub> _hubContext;
 
-        public ToDoTasksController(ToDoTasksContext context)
+        public ToDoTasksController(ToDoTasksContext context, IHubContext<NotificationHub> hubContext)
         {
             _context = context;
+            _hubContext = hubContext;
+        }
+
+        public void SendMessage(string Message)
+        {
+            // _hubContext.Clients.All.SendCoreAsync("Send", Message);
+            // https://stackoverflow.com/questions/27299289/how-to-get-signalr-hub-context-in-a-asp-net-core
         }
 
         // GET: ToDoTasks
