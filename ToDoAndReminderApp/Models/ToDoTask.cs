@@ -12,6 +12,7 @@ namespace ToDoAndReminderApp.Models
         public string TaskTitle { get; set; }
         public string TaskContent { get; set; }
         public bool IsTaskDone { get; set; }
+        public bool IsNotificationTurnedOn { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime TaskReminderDateTime { get; set; }

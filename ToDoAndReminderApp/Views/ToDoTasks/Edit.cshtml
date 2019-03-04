@@ -1,52 +1,73 @@
 ﻿@model ToDoAndReminderApp.Models.ToDoTask
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit My Task";
 }
 
-<h2>Edit</h2>
-
-<h4>ToDoTask</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ToDoTaskID" />
-
-            <div class="form-group">
-                <label asp-for="TaskTitle" class="control-label">What are you planning to do today?</label>
-                <input asp-for="TaskTitle" class="form-control" />
-                <span asp-validation-for="TaskTitle" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="TaskContent" class="control-label"></label>
-                <input asp-for="TaskContent" class="form-control" />
-                <span asp-validation-for="TaskContent" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="TaskReminderDateTime" class="control-label">Remind me at:</label>
-                <input asp-for="TaskReminderDateTime" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="IsTaskDone" /> @Html.DisplayNameFor(model => model.IsTaskDone)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
+<div align="center">
+    <h2><b>Edit Task</b></h2>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<hr />
+<div class="row">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ToDoTaskID" />
+
+        <h3><b>Task's Configurations</b></h3>
+        <div class="form-group">
+            <label asp-for="IsTaskDone" class="control-label">Task Status</label>
+            <div class="checkbox">
+                <b>
+                    <label><input asp-for="IsTaskDone" />Is the task completed?</label>
+                </b>
+            </div>
+            <span asp-validation-for="IsNotificationTurnedOn" class="text-danger">Note: Task will NOT be removed when this is checked.</span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TaskTitle" class="control-label">Task Title</label>
+            <input asp-for="TaskTitle" class="form-control" />
+            <span asp-validation-for="TaskTitle" class="text-danger">Hint: Just provide a brief title.</span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TaskContent" class="control-label">Task Information</label>
+            <input asp-for="TaskContent" class="form-control" />
+            <span asp-validation-for="TaskContent" class="text-danger"></span>
+        </div>
+        <br />
+
+        <h3><b>Task's Reminder</b></h3>
+
+        <div class="form-group">
+            <label asp-for="IsNotificationTurnedOn" class="control-label">Reminder Status</label>
+            <div class="checkbox">
+                <label><input asp-for="IsNotificationTurnedOn" />Yes, turn on notification.</label>
+            </div>
+            <span asp-validation-for="IsNotificationTurnedOn" class="text-danger">Note: Notification will pop-up every minute after the reminder time until the notification is off or when the task is complete.</span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TaskReminderDateTime" class="control-label">Reminder Time</label>
+            <input asp-for="TaskReminderDateTime" class="form-control" />
+        </div>
+        <br />
+
+        <div align="center" class="form-group">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </form>
+</div>
+
+<br />
+
+<div align="center">
+    <h3>
+        <b>
+            <a asp-action="Index">Back to List</a>
+        </b>
+    </h3>
 </div>
 
 @section Scripts {

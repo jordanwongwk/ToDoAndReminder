@@ -4,45 +4,31 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<div align="center">
+    <h2><b>Task's Details</b></h2>
+</div>
 
+<hr />
 <div>
-    <h4>Task Viewer</h4>
+    <h3><b>Task Title</b></h3>
+    @Html.DisplayFor(model => model.TaskTitle)
     <hr />
 
-    <label>@Html.DisplayFor(model => model.TaskTitle)</label>
-    <br/>
+    <h3><b>Task Information</b></h3>
+    @Html.DisplayFor(model => model.TaskContent)
+    <hr />
 
-    <p>@Html.DisplayFor(model => model.TaskContent)</p>
-
-    <br /><br />
-
-    <p><b>Reminder: @Html.DisplayFor(model => model.TaskReminderDateTime)</b></p>
-
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TaskTitle)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TaskTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TaskContent)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TaskContent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsTaskDone)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IsTaskDone)
-        </dd>
-    </dl>
+    <h3><b>Task Reminder</b></h3>
+    @Html.DisplayFor(model => model.TaskReminderDateTime)
+    <hr />
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ToDoTaskID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<br />
+<div align="center">
+    <h3>
+        <b>
+            <a asp-action="Edit" asp-route-id="@Model.ToDoTaskID">Edit Task</a> ||
+            <a asp-action="Index">Back to List</a>
+        </b>
+    </h3>
 </div>

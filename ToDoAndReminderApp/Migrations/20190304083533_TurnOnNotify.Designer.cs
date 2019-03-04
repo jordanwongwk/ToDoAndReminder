@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoAndReminderApp.Models;
 
 namespace ToDoAndReminderApp.Migrations
 {
     [DbContext(typeof(ToDoTasksContext))]
-    partial class ToDoTasksContextModelSnapshot : ModelSnapshot
+    [Migration("20190304083533_TurnOnNotify")]
+    partial class TurnOnNotify
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

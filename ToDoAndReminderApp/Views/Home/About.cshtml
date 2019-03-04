@@ -1,7 +1,29 @@
 ﻿@{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "About This App";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+<h2>
+    <b>
+        @ViewData["Title"]
+    </b>
+</h2>
 
-<p>Use this area to provide additional information.</p>
+<h4>@ViewData["Message"]</h4>
+
+<hr />
+<p>
+    This application is created by Jordan Wong Wai Kit based on a challenge by Infinitlab. 
+    <br />
+    <br />
+    
+    <b>This "To-Do and Reminder App" can do the following:</b> <br />
+    1 - Allows users to save their to-do task into a list. <br />
+    2 - Allows users to get notify on the time they have set. (Note: You need to allow notification on your browser) <br />
+    3 - Organize your packed schedules into an organized list of tasks. <br />
+    4 - Enjoy the simple interface for easy and simple navigations. <br />
+</p>
+
+<h2>
+    <b>
+        <a asp-controller="ToDoTasks" asp-action="Index">Let's get started!</a>
+    </b>
+</h2>

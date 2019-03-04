@@ -4,7 +4,6 @@
     ViewData["Title"] = "Task List";
 }
 
-<h2>Task List</h2>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         if (Notification.permission != "granted") {
@@ -12,27 +11,20 @@
         }
     });
 
-    function CustomNotification(title, desc, url)
-    {
+    function CustomNotification(title, desc, url) {
         if (Notification.permission != "granted") {
             Notification.requestPermission();
         }
-        else
-        {
+        else {
             var notification = new Notification(title, {
                 body: desc,
             });
 
-            notification.onclose = function () { console.log('Notification Closed');}
+            notification.onclose = function () { console.log('Notification Closed'); }
         }
     }
-</script>
 
-<p>
-    <b>@DateTime.Today.ToString("D") // </b>
-    <b id="currentTime"></b>
-    <script>
-        function RealTimeClockFunction()
+    function RealTimeClockFunction()
         {
             var d = new Date();
             var currentHour = d.getHours();
@@ -43,52 +35,94 @@
             currentSec = ("0" + currentSec).slice(-2);
 
             document.getElementById("currentTime").innerHTML = currentHour + ":" + currentMin + ":" + currentSec;
+
+            // Check for notification
+            @foreach (var p in Model)
+            {
+                if (DateTime.Now.Date.CompareTo(p.TaskReminderDateTime.Date) == 0 && !p.IsTaskDone && p.IsNotificationTurnedOn)
+                {
+                    // Every minute notify once (when seconds touch 00)
+                    <text>
+                        if (currentHour >= @p.TaskReminderDateTime.Hour &&
+                            currentMin >= @p.TaskReminderDateTime.Minute &&
+                            currentSec == @p.TaskReminderDateTime.Second)
+                        {
+                            CustomNotification('@p.TaskTitle', '@p.TaskContent');
+                        }
+                    </text>
+                }
+            }
         }
 
-        setInterval(RealTimeClockFunction, 1000);
-    </script>
-    <script>
-        var d = new Date();
-        console.log(d.getHours().toString());
-        if (d.getHours() == "16" && d.getMinutes() == "48")
-        {
-            CustomNotification('Testing La', 'Time is up');
-        }
-        // Works but not real time
-    </script>
-    <br />
-    <br />
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Status
-            </th>
-            <th>
-                Task
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsTaskDone)
-            </td>
+    setInterval(RealTimeClockFunction, 1000);
+</script>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.TaskTitle)
-            </td>
+<div align="center">
+    <h1><b>Your Tasks List</b></h1>
+    <h5>
+        @DateTime.Today.ToString("D") //
+        <element id="currentTime">00:00:00</element>
+    </h5>
+    <br />
+    <h3><b>Tasks List</b></h3>
 
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ToDoTaskID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ToDoTaskID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ToDoTaskID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Task Status*
+                </th>
+                <th>
+                    Task
+                </th>
+                <th>
+                    Reminder Status
+                </th>
+                <th>
+                    Reminder Time
+                </th>
+                <th>
+                    Options
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsTaskDone)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaskTitle)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsNotificationTurnedOn)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaskReminderDateTime)
+                    </td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ToDoTaskID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ToDoTaskID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ToDoTaskID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <br />
+    <p><i>* To edit the task's status, please go to <b>"Edit"</b> for that task.</i></p>
+    <br />
+
+    <h2>
+        <b>
+            <a asp-action="Create">Create New Task</a>
+        </b>
+    </h2>
+</div>

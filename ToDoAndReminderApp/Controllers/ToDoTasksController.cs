@@ -63,7 +63,7 @@ namespace ToDoAndReminderApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ToDoTaskID,TaskTitle,TaskContent,IsTaskDone,TaskReminderDateTime")] ToDoTask toDoTask)
+        public async Task<IActionResult> Create([Bind("ToDoTaskID,TaskTitle,TaskContent,IsTaskDone,IsNotificationTurnedOn,TaskReminderDateTime")] ToDoTask toDoTask)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace ToDoAndReminderApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ToDoTaskID,TaskTitle,TaskContent,IsTaskDone,TaskReminderDateTime")] ToDoTask toDoTask)
+        public async Task<IActionResult> Edit(int id, [Bind("ToDoTaskID,TaskTitle,TaskContent,IsTaskDone,IsNotificationTurnedOn,TaskReminderDateTime")] ToDoTask toDoTask)
         {
             if (id != toDoTask.ToDoTaskID)
             {

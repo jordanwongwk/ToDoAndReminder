@@ -4,30 +4,35 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<div align="center">
+    <h2><b>Delete Task</b></h2>
+    <h4><b>Are you sure you want to delete this task?</b></h4>
+    <p>This action cannot be reversed.</p>
+</div>
 
-<h3>Are you sure you want to delete this?</h3>
+<hr />
+
 <div>
-    <h4>ToDoTask</h4>
+    <h3><b>Task Title</b></h3>
+    @Html.DisplayFor(model => model.TaskTitle)
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TaskContent)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TaskContent)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.IsTaskDone)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IsTaskDone)
-        </dd>
-    </dl>
-    
+
+    <h3><b>Task Information</b></h3>
+    @Html.DisplayFor(model => model.TaskContent)
+    <hr />
+
     <form asp-action="Delete">
-        <input type="hidden" asp-for="ToDoTaskID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <div align="center">
+            <input type="hidden" asp-for="ToDoTaskID" />
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
     </form>
+</div>
+
+<div align="center">
+    <h3>
+        <b>
+            <a asp-action="Index">Back to List</a>
+        </b>
+    </h3>
 </div>
